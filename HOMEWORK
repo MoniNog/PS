@@ -1,0 +1,4 @@
+[x] push			Ajouter une assiette au sommet de la stack
+[x] pop				Retirer une assiette du sommet de la stack
+[_] print_stack		Afficher dans le terminal la pile
+[_] main			Créer la liste en utilisant push (dans le main) et l'afficher avec print_stack
