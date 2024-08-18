@@ -1,7 +1,7 @@
 NAME = push_swap
 CC = gcc
-# CFLAGS =  -Werror -Wall -Wextra -g3 -fsanitize=address -I./lib/libft
-CFLAGS =  -Werror -Wall -Wextra -I./lib/libft
+# CFLAGS =  -Wall -Werror -Wextra -g3 -fsanitize=address -I./lib/libft
+CFLAGS =  -Wall -Werror -Wextra -I./lib/libft
 LIBFT_PATH = ./lib/libft
 LIBFT = -L$(LIBFT_PATH) -lft
 
@@ -11,19 +11,21 @@ HEADERS = -Iincludes
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@make -C $(LIBFT_PATH)
+$(NAME): $(OBJS) libft.a
 	@$(CC) $(OBJS) -o $(NAME) $(CFLAGS) $(LIBFT)
 
-@$(OBJS): %.o : %.c
-	@$(CC) $(CFLAGS) $(HEADERS)-I$(LIBFT_PATH) -c $< -o $@
+libft.a:
+	@make -C $(LIBFT_PATH) --silent
+
+%.o: %.c
+	@$(CC) $(CFLAGS) $(HEADERS) -I$(LIBFT_PATH) -c $< -o $@
 
 clean:
-	@make -C $(LIBFT_PATH) clean
+	@make -C $(LIBFT_PATH) clean --silent
 	@rm -f $(OBJS)
 
 fclean: clean
-	@make -C $(LIBFT_PATH) fclean
+	@make -C $(LIBFT_PATH) fclean --silent
 	@rm -f $(NAME)
 
 re: fclean all

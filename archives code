@@ -1,0 +1,59 @@
+// void	print_stack(t_stack *stack_a)
+// {
+// 	int index = 0;
+// 	if (!stack_a)
+// 	{
+// 		printf("┌───────────────┐\n");
+// 		printf("│  Empty stack  │\n");
+// 		printf("└───────────────┘\n");
+// 		return;
+// 	}
+// 	printf("┌───────────────┐\n");
+// 	printf("│    Stack A    │\n");
+// 	printf("└───────────────┘\n\n");
+// 	printf("┌─────┬─────────┐\n");
+// 	printf("│ Ind │  Value  │\n");
+// 	printf("├─────┼─────────┤\n");
+// 	while (stack_a != NULL)
+// 	{
+// 		printf("│ %2d  │ %5d   │\n", index, stack_a->content);
+// 		stack_a = stack_a->next;
+// 		index++;
+// 	}
+// 	printf("└─────┴─────────┘\n");
+// }
+
+// t_stack		*new_stack(int av)
+// {
+// 	t_stack		*stack_start;
+// 	t_stack		*stack_next;
+// 	t_stack		*stack_next_next;
+// 	t_stack		*stack_last;
+
+// 	stack_start = malloc(sizeof(t_stack));
+// 	if (stack_start == NULL)// pourquoi on check pas a chaque fois ?
+// 		return (NULL);
+
+// //	1 assiette
+// 	stack_start->content = av;// le dernier de la pile (ou la premiere assiette)
+
+// // // 2 assiette
+// // 	stack_next = malloc(sizeof(t_stack));
+// // 	stack_start->next = stack_next;
+// // 	stack_next->content = 5;
+
+// // // 3 assiette
+// 	stack_next_next = malloc(sizeof(t_stack));
+// 	stack_next->next = stack_next_next;
+// 	stack_next_next->content = -1;
+
+// // 4 assiette (et derniere)
+// 	stack_last = malloc(sizeof(t_stack));
+// 	stack_next_next->next = stack_last;
+// 	stack_last->content = 7;
+
+// // fin de la pile
+// 	stack_last->next = NULL;
+
+// 	return (stack_start);
+// }
